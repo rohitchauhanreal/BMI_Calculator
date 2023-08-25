@@ -7,17 +7,19 @@ import 'result_page.dart';
 import 'package:bmi_calculator/calculator_brain.dart';
 
 enum Gender {
-  Male,
-  Female,
+  male,
+  female,
 }
 
 class Inputpage extends StatefulWidget {
+  const Inputpage({super.key});
+
   @override
   State<Inputpage> createState() => _InputpageState();
 }
 
 class _InputpageState extends State<Inputpage> {
-  Gender selectedGender = Gender.Male;
+  Gender selectedGender = Gender.male;
   int height = 120;
   int weight = 60;
   int age = 15;
@@ -27,7 +29,7 @@ class _InputpageState extends State<Inputpage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kActiveCardColour,
-        title: Text(
+        title: const Text(
           'BMI CALCULATOR',
         ),
       ),
@@ -39,10 +41,10 @@ class _InputpageState extends State<Inputpage> {
                 child: ReusableCard(
                     onPress: () {
                       setState(() {
-                        selectedGender = Gender.Male;
+                        selectedGender = Gender.male;
                       });
                     },
-                    colour: selectedGender == Gender.Male
+                    colour: selectedGender == Gender.male
                         ? kActiveCardColour
                         : kInactiveCardColour,
                     cardChild: IconShortcut(
@@ -54,10 +56,10 @@ class _InputpageState extends State<Inputpage> {
                 child: ReusableCard(
                     onPress: () {
                       setState(() {
-                        selectedGender = Gender.Female;
+                        selectedGender = Gender.female;
                       });
                     },
-                    colour: selectedGender == Gender.Female
+                    colour: selectedGender == Gender.female
                         ? kActiveCardColour
                         : kInactiveCardColour,
                     cardChild: IconShortcut(
@@ -74,7 +76,7 @@ class _InputpageState extends State<Inputpage> {
             cardChild: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
+                const Text(
                   'HEIGHT',
                   style: kLabelTextStyle,
                 ),
@@ -85,7 +87,7 @@ class _InputpageState extends State<Inputpage> {
                   children: [
                     Text(height.toString(),
                         style: kNumberTextStyle),
-                    Text(
+                    const Text(
                       'cm',
                       style: kLabelTextStyle,
                     )
@@ -94,17 +96,17 @@ class _InputpageState extends State<Inputpage> {
                 SliderTheme(
                   data: SliderTheme.of(context).copyWith(
                     activeTrackColor: Colors.white,
-                    inactiveTickMarkColor: Color(0xFF8D8E98),
-                    thumbColor: Color(0xFFEB1555),
-                    overlayColor: Color(0x29EB1555),
-                    thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15.0),
-                    overlayShape: RoundSliderOverlayShape(overlayRadius: 30.0),
+                    inactiveTickMarkColor: const Color(0xFF8D8E98),
+                    thumbColor: const Color(0xFFEB1555),
+                    overlayColor: const Color(0x29EB1555),
+                    thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                    overlayShape: const RoundSliderOverlayShape(overlayRadius: 30.0),
                   ),
                   child: Slider(
                     value: height.toDouble(),
                     min: 120.0,
                     max: 220.0,
-                    activeColor: Color(0xFFEB1555),
+                    activeColor: const Color(0xFFEB1555),
                     onChanged: (double newValue) {
                       setState(() {
                         height = newValue.round();
@@ -125,7 +127,7 @@ class _InputpageState extends State<Inputpage> {
                   cardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         'WEIGHT',
                         style: kLabelTextStyle,
                       ),
@@ -144,7 +146,7 @@ class _InputpageState extends State<Inputpage> {
                               });
                             },
                           ),
-                          SizedBox(width: 10.0),
+                          const SizedBox(width: 10.0),
                           RoundIconButton(
                             icon: FontAwesomeIcons.plus,
                             onPressed: () {
@@ -165,7 +167,7 @@ class _InputpageState extends State<Inputpage> {
                   cardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         'AGE',
                         style: kLabelTextStyle,
                       ),
@@ -183,7 +185,7 @@ class _InputpageState extends State<Inputpage> {
                               );
                             },
                           ),
-                          SizedBox(width: 10.0),
+                          const SizedBox(width: 10.0),
                           RoundIconButton(
                               icon: FontAwesomeIcons.plus,
                               onPressed: () {
@@ -219,10 +221,10 @@ class _InputpageState extends State<Inputpage> {
               borderRadius: BorderRadius.circular(10.0),
             ),
             alignment: Alignment.center,
-            margin: EdgeInsets.only(top: 10.0),
+            margin: const EdgeInsets.only(top: 10.0),
             width: double.infinity,
             height: kBottomContainerHeight,
-            child: Text(
+            child: const Text(
               'Calculate BMI',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -237,7 +239,7 @@ class _InputpageState extends State<Inputpage> {
 }
 
 class RoundIconButton extends StatelessWidget {
-  RoundIconButton({required this.icon, required this.onPressed});
+  const RoundIconButton({super.key, required this.icon, required this.onPressed});
 
   final IconData icon;
   final Function() onPressed;
@@ -245,15 +247,15 @@ class RoundIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      child: Icon(icon),
       onPressed: onPressed,
       elevation: 6.0,
-      constraints: BoxConstraints.tightFor(
+      constraints: const BoxConstraints.tightFor(
         width: 56.0,
         height: 56.0,
       ),
-      shape: CircleBorder(),
-      fillColor: Color(0xFF4C4F5E),
+      shape: const CircleBorder(),
+      fillColor: const Color(0xFF4C4F5E),
+      child: Icon(icon),
     );
   }
 }

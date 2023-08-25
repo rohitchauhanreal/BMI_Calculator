@@ -4,7 +4,7 @@ import 'reusable_Card.dart';
 
 class ResultsPage extends StatelessWidget {
 
-  ResultsPage({required this.bmiResult, required this.interpretation, required this.resultText});
+  const ResultsPage({super.key, required this.bmiResult, required this.interpretation, required this.resultText});
 
   final String bmiResult;
   final String resultText;
@@ -15,7 +15,7 @@ class ResultsPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: kInactiveCardColour,
-          title: Text('BMI CALCULATOR'),
+          title: const Text('BMI CALCULATOR'),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -23,9 +23,9 @@ class ResultsPage extends StatelessWidget {
           children: [
             Expanded(
               child:Container(
-                padding: EdgeInsets.all(15.0),
+                padding: const EdgeInsets.all(15.0),
                 alignment: Alignment.bottomLeft,
-                child: Text(
+                child: const Text(
                   'Your Result',
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -44,14 +44,14 @@ class ResultsPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(resultText.toUpperCase(),
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 22.0,
                         color: Color(0xFF24D876),
                       ),
                     ),
                     Text(bmiResult,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 100.0,
                         fontWeight: FontWeight.bold,
                       ),
@@ -59,7 +59,7 @@ class ResultsPage extends StatelessWidget {
                     Text(
                       interpretation,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 22.0,
                       ),
@@ -78,10 +78,10 @@ class ResultsPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 alignment: Alignment.center,
-                margin: EdgeInsets.only(top: 10.0),
+                margin: const EdgeInsets.only(top: 10.0),
                 width: double.infinity,
                 height: kBottomContainerHeight,
-                child: Text(
+                child: const Text(
                   'Re-Calculate',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,

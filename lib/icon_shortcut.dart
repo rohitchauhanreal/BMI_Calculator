@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 
 class IconShortcut extends StatelessWidget {
-  IconShortcut({ required this.icon, required this.label });
+  const IconShortcut({super.key,  required this.icon, required this.label });
 
   final IconData icon;
   final String label;
@@ -14,7 +14,7 @@ class IconShortcut extends StatelessWidget {
       children: [Icon(icon,
           color: Colors.white,
           size: 80.0),
-        SizedBox(
+        const SizedBox(
           height: 15.0,
         ),
         Text(
